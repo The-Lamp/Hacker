@@ -2,7 +2,7 @@
 
 
     var firebaseConfig = {
-    apiKey: "API KEY",
+    apiKey: "AIzaSyDaBpbtBvw99tWY4HYl0m4IaKDNpb1AeKI",
     authDomain: "AUTH DOMAIN",
     databaseURL: "DATABSE URL",
     projectId: "PROJECT ID",
