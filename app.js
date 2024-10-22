@@ -6,7 +6,7 @@
     authDomain: "AUTH DOMAIN",
     databaseURL: "DATABSE URL",
     projectId: "PROJECT ID",
-    storageBucket: "BUCKET URL",
+    storageBucket: "something-baa0d.appspot.com",
     messagingSenderId: "SENDER ID",
     appId: "APP ID"
   }; 
