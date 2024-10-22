@@ -7,7 +7,7 @@
     databaseURL: "https://something-baa0d-default-rtdb.firebaseio.com/",
     projectId: "something-baa0d",
     storageBucket: "something-baa0d.appspot.com",
-    messagingSenderId: "SENDER ID",
+    messagingSenderId: "300009478773",
     appId: "APP ID"
   }; 
  
