@@ -8,7 +8,7 @@
     projectId: "something-baa0d",
     storageBucket: "something-baa0d.appspot.com",
     messagingSenderId: "300009478773",
-    appId: "APP ID"
+    appId: "1:300009478773:android:b8f6270330828be112363c"
   }; 
  
 ////Do Not Edit Below This
